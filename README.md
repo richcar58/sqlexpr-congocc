@@ -52,18 +52,18 @@ Building SqlExprParser is a two step process, both of which are automated using 
 
 >       mvn clean install
   
-The above Maven command will also install sqlexpr-javacc in your local Maven (~/.m2) repository.  Compilation assumes Java 21 or above, but the compiled class files will execute on JVMs supporting Java 17 or above.  
+The above Maven command will also install sqlexpr-congocc in your local Maven (~/.m2) repository.  Compilation assumes Java 21 or above, but the compiled class files will execute on JVMs supporting Java 17 or above.  
   
-The first step in the build uses JavaCC to generate parser source code based on the language defined in [SqlExprParser.jj](https://github.com/richcar58/sqlexpr-javacc/blob/main/src/main/resources/SqlExprParser.jj).  The output of this step resides in the [net.magneticpotato.sqlexpr.javacc.parser](https://github.com/richcar58/sqlexpr-javacc/tree/main/src/main/java/net/magneticpotato/sqlexpr/javacc/parser) package and is saved in SqlExprParser's GitHub repository with all other source code.  This parser code does not normally need to be regenerated, but can be if *SqlExprParser.jj* content or the JavaCC options used to generate the code change.
+The first step in the build uses CongoCC to generate parser source code based on the language defined in [SqlExprParser.ccc](https://github.com/richcar58/sqlexpr-congocc/blob/main/src/main/resources/SqlExprParser.ccc).  The output of this step resides in the [net.magneticpotato.sqlexpr.congocc.parser](https://github.com/richcar58/sqlexpr-congocc/tree/main/src/main/java/net/magneticpotato/sqlexpr/congocc/parser) package and is saved in SqlExprParser's GitHub repository with all other source code.  This parser code does not normally need to be regenerated, but can be if *SqlExprParser.ccc* content or the CongoCC options used to generate the code change.
 
 ### Other Ways to Generate Parser Source Code
 
-If you'd like to regenerate the parser source code from within an IDE such as Eclipse or IntelliJ, run the `BuildSqlExprParser` program.  The IDE will automatically arrange for the required dependencies to be on the Java CLASSPATH and run JavaCC.  
+If you'd like to regenerate the parser source code from within an IDE such as Eclipse or IntelliJ, run the `BuildSqlExprParser` program.  The IDE will automatically arrange for the required dependencies to be on the Java CLASSPATH and run CongoCC.  
 
-Alternatively, you can manually assign the dependencies from the pom.xml file to a CLASSPATH environment variable and run JavaCC from the command line.  Below is an example of the commands needed to generate the parser source code (using dependency versions at the time of this writing).  We assume that Java JDK and JavaCC are on the PATH and that the current directory is *sqlexpr-javacc/src/main/resources*.
+Alternatively, you can manually assign the dependencies from the pom.xml file to a CLASSPATH environment variable and run CongoCC from the command line.  Below is an example of the commands needed to generate the parser source code (using dependency versions at the time of this writing).  We assume that Java JDK and CongoCC are on the PATH and that the current directory is *sqlexpr-congocc/src/main/resources*.
 
->       export CLASSPATH=<path-to-ActiveMQ>/activemq-client-6.1.6.jar:<path-to-JavaCC>/javacc.jar
->       scripts/javacc SqlExprParser.jj
+>       export CLASSPATH=<path-to-ActiveMQ>/activemq-client-6.1.6.jar:<path-to-CongoCC>/congocc.jar
+>       java -jar congocc.jar -d ../java -jdk17 SqlExprParser.ccc
 
 ## Support
 
