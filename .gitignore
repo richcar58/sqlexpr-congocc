@@ -1,0 +1,12 @@
+# Compiled class files
+/target/
+*.class
+*.jar
+
+# Test 
+/test-output/
+
+# Eclipse files or directories
+.classpath
+.project
+.settings

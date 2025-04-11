@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="SQL Expression Parser Tester" verbose="1" parallel="none">
+    <groups>
+        <run>
+            <exclude name="broken"/>
+            <exclude name="notReady"/>
+        </run>
+    </groups>
+	<test name="sqlexpr parser tester">
+		<packages>
+		   <package name="net.magneticpotato.sqlexpr.congocc.parser.*" /> 
+		</packages>
+	</test>
+</suite>
