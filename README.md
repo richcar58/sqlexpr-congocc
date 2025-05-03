@@ -1,7 +1,5 @@
 # SqlExprParser
 
-** --------- THIS PROJECT IS UNDER CONSTRUCTION AND DOES NOT WORK YET ---------**
-
 This project provides a parser and evaluator for boolean expressions written in a SQL-like language.  The language leverages SQL's simplicity and wide adoption, and is especially well-suited to represent end-user conditional logic, such as user-defined email routing or message queue selection.  No SQL database is required.  
 
 The language is a subset of the standard SQL expression language used in WHERE clauses.  Expressions are strings that can be parsed using the `SqlExprEvaluator.parse(String)` method.  If an expression is valid, a BooleanExpression object is returned.  This object, along with a map of name/value pairs, is evaluated using the `SqlExprEvaluator.match(BooleanExpression, Map)` method.  For convenience, the `SqlExprEvaluator.match(String, Map)` method both parses and evaluates an expression.  Here's an example usage of SqlExprParser:

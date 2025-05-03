@@ -5,8 +5,6 @@ import java.util.HashMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import net.magneticpotato.sqlexpr.congocc.SqlExprException;
-
 @Test(groups= {"unit"})
 public class SqlExprEvaluatorTest 
 {

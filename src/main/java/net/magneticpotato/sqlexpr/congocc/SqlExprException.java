@@ -1,5 +1,6 @@
 package net.magneticpotato.sqlexpr.congocc;
 
+@SuppressWarnings("serial")
 public class SqlExprException extends Exception 
 {
     /**
