@@ -87,7 +87,7 @@ public class SqlExprEvaluator
      * replaced with concrete values and those values cause the expression to 
      * evaluate to true. Evaluation will be short-circuited if the truth value
      * of the expression or a subclause is known before evaluation completes, 
-     * similar to the way Java short-circuits || and && expressions.  This means
+     * similar to the way Java short-circuits || and &amp;&amp; expressions.  This means
      * that missing values that are not referenced do not cause an error, but
      * missing values that are needed cause the whole expression to return false.
      * 

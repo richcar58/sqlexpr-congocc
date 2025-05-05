@@ -488,28 +488,28 @@ ConstantExpression literal :
         (
             t= <DECIMAL_LITERAL>
             {
-                left = ConstantExpression.createFromDecimal(t.image);
+                left = ConstantExpression.createFromDecimal(t.toString());
             }
         )
         |
         (
             t= <HEX_LITERAL>
             {
-                left = ConstantExpression.createFromHex(t.image);
+                left = ConstantExpression.createFromHex(t.toString());
             }
         )
         |
         (
             t= <OCTAL_LITERAL>
             {
-                left = ConstantExpression.createFromOctal(t.image);
+                left = ConstantExpression.createFromOctal(t.toString());
             }
         )
         |
         (
             t= <FLOATING_POINT_LITERAL>
             {
-                left = ConstantExpression.createFloat(t.image);
+                left = ConstantExpression.createFloat(t.toString());
             }
         )
         |
@@ -549,7 +549,7 @@ String stringLitteral :
     t= <STRING_LITERAL>
     {
         // Decode the sting value.
-        String image = t.image;
+        String image = t.toString();
         for( int i=1; i < image.length()-1; i++ ) {
             char c = image.charAt(i);
             if( c == '\'' )
@@ -569,7 +569,7 @@ PropertyExpression variable :
     (
         t= <ID>
         {
-            left = new PropertyExpression(t.image);
+            left = new PropertyExpression(t.toString());
         }
     )
     {

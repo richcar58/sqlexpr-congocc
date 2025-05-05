@@ -284,23 +284,6 @@
                         <mainClass>net.magneticpotato.sqlexpr.congocc.generator.BuildSqlExprParser</mainClass>
                     </configuration>
                 </execution>
-                <execution>
-                    <!-- CongoCC generates code that expects tokens to contains the removed "image" field. The workaround is to     -->
-                    <!-- replace all occurrences of "t.image" with "t.toString()" to conform to the current CongoCC implementation. -->
-                    <id>fix-up-generated-code</id>
-                    <goals>
-                        <goal>exec</goal>
-                    </goals>
-                    <phase>process-sources</phase>
-                    <configuration>
-                        <executable>sed</executable>
-                        <arguments>
-                            <argument>-i</argument>
-                            <argument>s/t.image/t.toString()/g</argument>
-                            <argument>${basedir}/src/main/java/net/magneticpotato/sqlexpr/congocc/parser/SqlExprParser.java</argument>
-                        </arguments>
-                    </configuration>
-                </execution>
             </executions>
         </plugin>
 
