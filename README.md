@@ -67,6 +67,10 @@ Alternatively, you can manually assign the dependencies from the pom.xml file to
 >       export CLASSPATH=<path-to-ActiveMQ>/activemq-client-6.1.6.jar:<path-to-CongoCC>/congocc.jar
 >       java -jar congocc.jar -d ../java -jdk17 SqlExprParser.ccc
 
+## Testing
+
+The test programs included in this repository can be run using TestNG.  The same tests are also available in the [sqlexpr-congocc-test](https://github.com/richcar58/sqlexpr-congocc-test) repository, which pulls the parser from [Maven Central](https://central.sonatype.com/artifact/net.magneticpotato/sqlexpr-congocc).
+
 ## Support
 
 Support is on a best effort basis by creating GitHub issues on this repository.  The developer/maintainer can be contacted at *rcdev58 at pm.me*.
