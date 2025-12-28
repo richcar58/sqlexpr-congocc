@@ -50,7 +50,7 @@ The [sqlexpr-javacc](https://github.com/richcar58/sqlexpr-javacc) parser recogni
     
 Instructions assume Linux or a Unix-like operating system.
 
-Building SqlExprParser is a two step process, both of which are automated using Maven (3.9.9+) and the SqlExprParser pom.xml file.  From SqlExprParser's top-level directory, simple issue this command on the command line to compile the code and package it in *target/sqlexprlib.jar*: 
+Building SqlExprParser is a two step process, both of which are automated using Maven (3.9.9+) and the SqlExprParser pom.xml file.  From SqlExprParser's top-level directory, simply issue this command on the command line to compile the code and package it in *target/sqlexprlib.jar*: 
 
 >       mvn clean install
   
