@@ -55,6 +55,8 @@ Building SqlExprParser is a two step process, both of which are automated using 
 >       mvn clean install
   
 The above Maven command will also install sqlexpr-congocc in your local Maven (~/.m2) repository.  Compilation assumes Java 21 or above, but the compiled class files will execute on JVMs supporting Java 17 or above.  
+
+> **_NOTE:_**  Without any input modifications, SqlExprParserLexer.java non-deterministically changes when recompiled.  These changes can be preserved or discarded--the code behaves the same in either case.  
   
 The first step in the build uses CongoCC to generate parser source code based on the language defined in [SqlExprParser.ccc](https://github.com/richcar58/sqlexpr-congocc/blob/main/src/main/resources/SqlExprParser.ccc).  The output of this step resides in the [net.magneticpotato.sqlexpr.congocc.parser](https://github.com/richcar58/sqlexpr-congocc/tree/main/src/main/java/net/magneticpotato/sqlexpr/congocc/parser) package and is saved in SqlExprParser's GitHub repository with all other source code.  This parser code does not normally need to be regenerated, but can be if *SqlExprParser.ccc* content or the CongoCC options used to generate the code change.
 
@@ -69,7 +71,12 @@ Alternatively, you can manually assign the dependencies from the pom.xml file to
 
 ## Testing
 
-The test programs included in this repository can be run using TestNG.  The same tests are also available in the [sqlexpr-congocc-test](https://github.com/richcar58/sqlexpr-congocc-test) repository, which pulls the parser from [Maven Central](https://central.sonatype.com/artifact/net.magneticpotato/sqlexpr-congocc).
+Assuming TestNG is accessible, the test programs included in this repository can be run using TestNG in an IDE or from the command line as follows:  
+
+>       cd sqlexpr-congocc
+>       java -cp "target/classes:target/test-classes:$(mvn dependency:build-classpath -q -DincludeScope=test -Dmdep.outputFile=/dev/stdout)" org.testng.TestNG -testclass net.magneticpotato.sqlexpr.congocc.SqlExprEvaluatorTest,net.magneticpotato.sqlexpr.congocc.parser.ParserTest,net.magneticpotato.sqlexpr.congocc.parser.ASTParserTest
+
+The same tests are also available in the [sqlexpr-congocc-test](https://github.com/richcar58/sqlexpr-congocc-test) repository, which pulls the parser from [Maven Central](https://central.sonatype.com/artifact/net.magneticpotato/sqlexpr-congocc).
 
 ## Support
 
